@@ -1,6 +1,7 @@
-# My First PyGame, Areillee Butler, 12/1/21 2:15pm, v0.11
+# My First PyGame, Areillee Butler, 12/1/21 2:37pm, v0.12
 
-import pygame, sys 
+import pygame, sys
+from pygame import pixelarray 
 from pygame.locals import *
 
 # Start PyGame
@@ -22,7 +23,7 @@ basicFont = pygame.font.SysFont(None, 48)
 
 # Setup text.
 text = basicFont.render('Hello, world' , True, WHITE, BLUE)
-textReact = text.get_rect()
+textRect = text.get_rect()
 textRect.centerx = windowSurface.get_rect().centerx 
 textRect.centery = windowSurface.get_rect().centery
 
@@ -31,12 +32,12 @@ textRect.centery = windowSurface.get_rect().centery
 windowSurface.fill(FLOWERPINK)
 
 #  Draw a polygon onto the screen. 
-pygame.draw.polygon(windowSurface, FLOWERPINK, ((146, 0), (291, 106), (236, 277)(56, 277), (0,106))) 
+pygame.draw.polygon(windowSurface, BLACK, ((146, 0), (291, 106), (236, 277), (56, 277), (0,106)))
 
 # Draw lines on the screen. 
-pygame.draw.line(windowSurface,  BLUE,  (60,60,) (120, 60), 4) 
-pygame.draw.line(windowSurface,  RED,  (0,150,) (60, 75), 1) 
-pygame.draw.line(windowSurface,  WHITE,  (75,60,) (60, 75), 2) 
+pygame.draw.line(windowSurface,  BLUE, (60, 60), (120, 60), 4) 
+pygame.draw.line(windowSurface,  RED,  (0, 150), (60, 75), 1) 
+pygame.draw.line(windowSurface,  WHITE,  (75, 60), (60, 75), 2) 
 
 # Draw a circle. 
 pygame.draw.circle(windowSurface, BLACK, (300,50), 20, 0) 
@@ -48,9 +49,19 @@ pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
 pygame.draw.rect(windowSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))
 
 # Create Pixel Array
-pixArray = pygame.pixelArray(windowSurface) 
-pixelArray[480][380] = BLUE 
+pixArray = pygame.PixelArray(windowSurface) 
+pixArray[480][380] = BLUE 
 del pixArray 
 
 # Draw the text onto the surface. 
 windowSurface.blit(text, textRect) 
+
+#Update Pygame Display
+pygame.display.update()
+
+# Run game loop. 
+while True: 
+    for event in pygame.event.get(): 
+        if event.type == QUIT: 
+            pygame.quit()
+            sys.exit() 
