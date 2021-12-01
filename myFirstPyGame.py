@@ -1,4 +1,4 @@
-# My First PyGame, Areillee Butler, 12/1/21 1:59pm, v0.7
+# My First PyGame, Areillee Butler, 12/1/21 2:02pm, v0.8
 
 import pygame, sys 
 from pygame.locals import *
@@ -39,4 +39,7 @@ pygame.draw.line(windowSurface,  RED,  (0,150,) (60, 75), 1)
 pygame.draw.line(windowSurface,  WHITE,  (75,60,) (60, 75), 2) 
 
 # Draw a circle. 
-pygame.draw.circle(windowSurface, BLACK, (300,50), 20, 0 )
+pygame.draw.circle(windowSurface, BLACK, (300,50), 20, 0) 
+
+# draw an ellipse. 
+pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
