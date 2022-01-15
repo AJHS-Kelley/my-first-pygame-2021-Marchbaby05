@@ -1,4 +1,4 @@
-#PyGame Collision Detection practice, Butler Areillee, Janurary 15, 2022, 3:40PM, v1.1
+#PyGame Collision Detection practice, Butler Areillee, Janurary 15, 2022, 3:45PM, v1.1a-BUGFIX
 
 import pygame, sys, random
 from pygame.locals import *
@@ -76,9 +76,9 @@ while True:
                 player.left random.randint(0, WINDOWWIDTH - player.width)
 
         if event.type == MOUSEBUTTONUP: 
-            foods.append(pygame.Rect(event.pos[0], event.pos[1]), FOODSIZE, FOODSIZE))
+            foods.append(pygame.Rect(event.pos[0], event.pos[1], FOODSIZE, FOODSIZE))
     foodcounter += 1
-    if foodcounter => NEWFOOD: 
+    if foodcounter >= NEWFOOD: 
         #Add new food. 
         foodcounter = 0 
         foods.append(pygame.Rect(random.randint(0,WINDOWWIDTH - FOODSIZE), random.randint(0,WINDOWHEIGHT - FOODSIZE), FOODSIZE, FOODSIZE))
