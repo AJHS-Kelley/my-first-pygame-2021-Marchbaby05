@@ -1,6 +1,6 @@
-#PyGame Collision Detection practice, Butler Areillee, Janurary 15, 2022, 3:45PM, v1.1a-BUGFIX
+#PyGame Collision Detection practice, Butler Areillee, Janurary 15, 2022, 4:37PM, v2.0
 
-import pygame, sys, random
+import pygame, sys, random 
 from pygame.locals import *
 
 # Setup PyGame 
@@ -26,7 +26,7 @@ player = pygame.Rect(300, 100, 50, 50)
 foods = []
 
 for i in range(20): 
-    foods.append(pygame.Rect(random.randin(0 WINDOWWIDTH - FOODSIZE), random.randint)0, WINDOWHEIGHT - FOODSIZE), FOODSIZE, FOODSIZE))
+    food.append(pygame.Rect(random.randint(0, WINDOWWIDTH - FOODSIZE), random.randint(0, WINDOWHEIGHT - FOODSIZE), FOODSIZE, FOODSIZE)) 
 
 # Movement Variables 
 moveLeft = False 
@@ -72,8 +72,8 @@ while True:
             if event.key == K_DOWN or event.key == k_s:
                 moveDown = False 
             if event.key == K_x: # Use x to teleport the player.
-                player.top = random.randint(0, WINDOWHEIGHT - player.height
-                player.left random.randint(0, WINDOWWIDTH - player.width)
+                player.top = random.randint(0, WINDOWHEIGHT - player.height) 
+                player.left = random.randint(0, WINDOWWIDTH - player.width)
 
         if event.type == MOUSEBUTTONUP: 
             foods.append(pygame.Rect(event.pos[0], event.pos[1], FOODSIZE, FOODSIZE))
@@ -107,3 +107,7 @@ while True:
     #Draw the food. 
     for i in range(len(foods)):
         pygame.draw.rect(windowSurface, GREEN, foods[i])
+
+    # Draw the window to the screen. 
+    pygame.display.update()
+    mainClock.tick(40)
