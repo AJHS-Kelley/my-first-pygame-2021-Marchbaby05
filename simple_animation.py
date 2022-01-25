@@ -10,7 +10,7 @@ pygame.init()
 WINDOWWIDTH = 400 
 WINDOWHEIGHT = 400 
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
-pygame.display.set_captioon('Animation Example!')
+pygame.display.set_caption('Animation Example!')
 
 # Setup the direction varibales. 
 DOWNLEFT = 'downleft'
@@ -59,7 +59,7 @@ while True:
             b['rect'].top -= MOVESPEED 
 
         if b['rect'].top < 0: 
-            # The box has moved pas the top. 
+            # The box has moved past the top. 
             if b['dir'] == UPLEFT: 
                 b['dir'] = DOWNLEFT
             if b['dir'] == UPRIGHT: 
@@ -71,7 +71,7 @@ while True:
                 if b['dir'] == DOWNRIGHT: 
                    b['dir'] = UPRIGHT 
         if b['rect'].left < 0: 
-            # The box has moved pas the left 
+            # The box has moved past the left 
             if b['dir'] == DOWNLEFT:
                     b['dir'] = DOWNRIGHT
             if b['dir'] == UPLEFT:
@@ -83,7 +83,7 @@ while True:
             if b['dir'] == UPRIGHT: 
                 b['dir'] = UPLEFT
 
-        # Drwa the box onto the game surface.
+        # Draw the box onto the game surface.
         pygame.draw.rect(windowSurface, b['color'], b['rect'])
 
     # Draw the window to the screen. 
